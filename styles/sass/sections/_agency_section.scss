@@ -1,0 +1,60 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+.agency_section {
+  @include mixins.flexbox(80px, inherit, space-between);
+
+  margin-top: 120px;
+  .agency__img {
+    img {
+      width: 550px;
+    }
+  }
+  h3 {
+    @include mixins.fontStill(veribles.$thirdBlack, 700, 48px, 60px);
+    @media screen and (max-width: 990px) {
+      @include mixins.fontStill(veribles.$thirdBlack, 700, 38px, 50px);
+    }
+    @media screen and (max-width: 550px) {
+      @include mixins.fontStill(veribles.$thirdBlack, 700, 28px, 36px);
+    }
+  }
+  p {
+    @include mixins.fontStill(veribles.$primaryBlack, inherit, 17px, 34px);
+    padding: 25px 0;
+  }
+  li {
+    @include mixins.flexbox(10px, inherit, inherit);
+    list-style-type: none;
+    p {
+      @include mixins.fontStill(veribles.$primaryBlack, inherit, 18px, 45px);
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .agency__img {
+      img {
+        width: 400px;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    gap: 10px;
+    .agency__img {
+      img {
+        width: 300px;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .agency__img {
+      img {
+        display: none;
+      }
+    }
+    text-align: center;
+  }
+}

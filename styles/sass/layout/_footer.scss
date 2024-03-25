@@ -1,0 +1,52 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+footer {
+  @include mixins.flexbox(inherit, inherit, space-between);
+  margin: 30px 0;
+  p {
+    @include mixins.fontStill(veribles.$primaryBlack, inherit, 20px, 24px);
+  }
+  span {
+    @include mixins.fontStill(veribles.$thirdBlack, inherit, 14px, 18.3px);
+  }
+  @media screen and (max-width: 950px) {
+    display: block;
+    @each $nav in (veribles.$navbar) {
+      .footer__#{$nav} {
+        @include mixins.flexbox(15px, inherit, center);
+      }
+    }
+  }
+  @media screen and (max-width: 560px) {
+    @each $nav in (veribles.$navbar) {
+      .footer__#{$nav} {
+        @include mixins.flexbox(5px, inherit, center);
+      }
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .footer__brend {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+.footer__menu {
+  list-style-type: none;
+  li {
+    a {
+      text-decoration: none;
+      @include mixins.fontStill(veribles.$primaryBlack, 400, 16px, 33px);
+      @include mixins.transition;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media screen and (max-width: 560px) {
+    flex-wrap: wrap;
+  }
+}

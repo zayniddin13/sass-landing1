@@ -1,0 +1,20 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+.agency_support {
+  flex-direction: row-reverse;
+}
+.agency_section {
+  .agency__about {
+    h5 {
+      margin: 24px 0;
+      @include mixins.fontStill(veribles.$secondryBlack, inherit, 17px, 35px);
+    }
+    h6 {
+      @include mixins.fontStill(veribles.$thirdBlack, inherit, 15px, 34px);
+      margin-bottom: 10px;
+    }
+  }
+}

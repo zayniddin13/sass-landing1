@@ -1,0 +1,57 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+.customers_section {
+  margin-top: 150px;
+  text-align: center;
+  p {
+    @include mixins.fontStill(veribles.$thirdBlack, inherit, 36px, 65px);
+    font-weight: typography.$secondryFont;
+  }
+  .customers__body {
+    @include mixins.flexbox(64px, inherit, center);
+    margin-top: 150px;
+    @media screen and (max-width: 1000px) {
+      margin-top: 50px;
+    }
+    @media screen and (max-width: 820px) {
+      @include mixins.flexbox(14px, inherit, center);
+      flex-wrap: wrap;
+    }
+  }
+  .customer__cont {
+    @include mixins.flexbox(10px, inherit, inherit);
+    padding: 25px 10px;
+    @include mixins.transition;
+    border-top: 3px solid transparent;
+    &:hover {
+      border-top: 3px solid veribles.$primaryPurple;
+      cursor: pointer;
+      transform: scale(110%);
+      box-shadow: 0px 8px 24px 0px #45589d12;
+    }
+  }
+}
+.customer__cont--about {
+  display: block;
+  h3 {
+    @include mixins.fontStill(veribles.$thirdBlack, inherit, 18px, 30px);
+  }
+  p {
+    @include mixins.fontStill(veribles.$secondryBlack, inherit, 15px, 28px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .customers_section {
+    margin-top: 50px;
+    p {
+      @include mixins.fontStill(veribles.$thirdBlack, inherit, 24px, 35px);
+      font-weight: typography.$secondryFont;
+    }
+    .customers__body {
+      justify-content: left;
+    }
+  }
+}

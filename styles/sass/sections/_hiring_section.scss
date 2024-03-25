@@ -1,0 +1,67 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+.hiring_section {
+  padding: 32px 33px;
+  border-radius: 6px;
+  background-color: veribles.$primaryPurple;
+  @include mixins.flexbox(10px, inherit, space-between);
+  position: relative;
+  transform: translateY(-50%);
+  h3 {
+    @include mixins.fontStill(white, inherit, 36px, 55px);
+  }
+  .hirig__cont {
+    margin-left: 80px;
+    text-align: center;
+  }
+  @media screen and (max-width: 1190px) {
+    .hirig__cont {
+      margin-left: 0px;
+    }
+    .arrow {
+      width: 200px;
+    }
+  }
+  @media screen and (max-width: 1020px) {
+    .arrow {
+      width: 150px;
+    }
+  }
+  @media screen and (max-width: 840px) {
+    .arrow {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1020px) {
+    h3 {
+      @include mixins.fontStill(white, inherit, 26px, 35px);
+    }
+  }
+  @media screen and (max-width: 680px) {
+    h3 {
+      @include mixins.fontStill(white, inherit, 20px, 30px);
+    }
+  }
+  @media screen and (max-width: 680px) {
+    display: block;
+    h3 {
+      text-align: center;
+      @include mixins.fontStill(white, inherit, 30px, 40px);
+    }
+    .hirig__cont {
+      margin-top: 20px;
+      img {
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    h3 {
+      text-align: center;
+      @include mixins.fontStill(white, inherit, 20px, 30px);
+    }
+  }
+}

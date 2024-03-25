@@ -1,0 +1,59 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+
+.tutorials_section {
+  margin-top: 200px;
+  padding-top: 57px;
+  padding-bottom: 280px;
+  background-color: veribles.$lightBlue;
+  .tutorials__body {
+    @include mixins.flexbox(30px, inherit, center);
+    margin-top: 60px;
+  }
+  @media screen and (max-width: 1060px) {
+    .tutorials__body {
+      @include mixins.flexbox(10px, inherit, center);
+    }
+  }
+  @media screen and (max-width: 790px) {
+    .tutorials__body {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  }
+}
+
+.tutorials__cont {
+  background-color: white;
+  position: relative;
+  border: 1px solid #f3f4f5;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  @include mixins.transition;
+  max-width: 400px;
+  &:hover {
+    box-shadow: 0px 8px 24px 0px #45589d12;
+    cursor: pointer;
+  }
+  .cont__img {
+    img {
+      margin-top: 0;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .cont__title {
+    @include mixins.fontStill(veribles.$thirdBlack, inherit, 20px, 30px);
+    margin: 0 25px;
+  }
+  .cont__comment {
+    @include mixins.flexbox(5px, inherit, left);
+    margin: 25px;
+    span {
+      @include mixins.fontStill(veribles.$secondryBlack, inherit, 16px, 26px);
+    }
+  }
+}

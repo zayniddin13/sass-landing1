@@ -1,0 +1,51 @@
+@use "../base/typography";
+@use "../abstract/veribles";
+@mixin flexbox($gap, $direction, $jutify) {
+  display: flex;
+  align-items: center;
+  justify-content: $jutify;
+  gap: $gap;
+  flex-direction: $direction;
+}
+@mixin fontStill($color, $weight, $size, $lineHight) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: typography.$primaryFont;
+  line-height: $lineHight;
+  letter-spacing: 1px;
+}
+@mixin transition {
+  transition: all 0.7s ease;
+}
+@mixin buttonStyle($color, $bg-color) {
+  border-radius: 5px;
+  border: 2px solid $color;
+  @include fontStill(inherit, inherit, 16px, 24px);
+  padding: 13px 25px;
+  color: $color;
+  background-color: $bg-color;
+  @media screen and (max-width: 1050px) {
+    padding: 8px 15px;
+  }
+  @media screen and (max-width: 970px) {
+    padding: 5px 10px;
+  }
+}
+@mixin title {
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  font-family: typography.$primaryFont;
+  color: veribles.$primaryPurple;
+  text-align: center;
+}
+@mixin subTitle {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 55px;
+  letter-spacing: 1px;
+  font-family: typography.$primaryFont;
+  color: veribles.$thirdBlack;
+  text-align: center;
+}

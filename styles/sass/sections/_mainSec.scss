@@ -1,0 +1,121 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+main {
+  background-color: veribles.$mainGrey;
+  padding-bottom: 98px;
+}
+.main_section {
+  @include mixins.flexbox(40px, inherit, space-between);
+}
+.main_about {
+  h2 {
+    @include mixins.fontStill(veribles.$primaryBlack, 700, 64px, 80px);
+  }
+  p {
+    @include mixins.fontStill(veribles.$primaryBlack, inherit, 18px, 42px);
+  }
+  form {
+    width: 100%;
+    margin: 40px 0;
+    @include mixins.flexbox(15px, inherit, inherit);
+    &:focus-within {
+      input {
+        border: 1px solid veribles.$primaryPurple;
+      }
+    }
+    input {
+      @include mixins.buttonStyle(veribles.$primaryPurple, white);
+      border: 1px solid transparent;
+      max-width: 500px;
+      width: 100%;
+      outline: none;
+    }
+    .btn__purple {
+      @include mixins.buttonStyle(white, veribles.$primaryPurple);
+      @include mixins.transition();
+      &:hover {
+        @include mixins.buttonStyle(veribles.$primaryPurple, white);
+      }
+      &:active {
+        @include mixins.buttonStyle(white, veribles.$primaryPurple);
+        opacity: 0.6;
+      }
+    }
+  }
+  .sponsors {
+    @include mixins.flexbox(15px, inherit, inherit);
+    span {
+      @include mixins.fontStill(veribles.$secondryGrey, inherit, 16px, 42px);
+    }
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 750px) {
+    text-align: center;
+    input,
+    .btn__purple {
+      padding: 13px 25px !important;
+    }
+  }
+  @media screen and (max-width: 470px) {
+    input,
+    .btn__purple {
+      padding: 8px 10px !important;
+    }
+  }
+  form {
+    gap: 5px;
+  }
+}
+@media screen and (max-width: 1060px) {
+  .main__img {
+    img {
+      width: 400px;
+    }
+    @media screen and (max-width: 750px) {
+      & {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 990px) {
+  .main_section {
+    gap: 10px;
+  }
+  .main_about {
+    h2 {
+      font-size: 40px;
+      line-height: 65px;
+    }
+  }
+}
+@media screen and (max-width: 860px) {
+  .main__img {
+    img {
+      width: 350px;
+      @media screen and (max-width: 790px) {
+        width: 300px;
+      }
+    }
+  }
+  .sponsors {
+    @include mixins.flexbox(10px, inherit, inherit);
+    span {
+      @include mixins.fontStill(veribles.$secondryGrey, inherit, 14px, 42px);
+    }
+    img {
+      width: 80px;
+    }
+  }
+}
+@media screen and (max-width: 470px) {
+  .main_about {
+    h2 {
+      font-size: 24px;
+      line-height: 35px;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@use "../abstract/functions";
+@use "../abstract/mixins";
+@use "../abstract/veribles";
+@use "../base/base";
+@use "../base/typography";
+.exciting_future {
+  margin-top: 57px;
+  .exciting__body {
+    @include mixins.flexbox(60px, inherit, space-around);
+  }
+}
+.exciting__cont {
+  text-align: center;
+  margin-top: 78px;
+  @include mixins.transition;
+  &:hover {
+    box-shadow: 0px 8px 24px 0px #45589d12;
+  }
+  img {
+    width: 80px;
+    height: 80px;
+  }
+  h3 {
+    @include mixins.fontStill(veribles.$thirdBlack, inherit, 18px, 30px);
+    margin: 21px 0;
+  }
+  p {
+    @include mixins.fontStill(veribles.$secondryBlack, 400, 15px, 28px);
+  }
+}
+@media screen and (max-width: 1160px) {
+  .exciting__body {
+    gap: 20px !important;
+  }
+}
+@media screen and (max-width: 1160px) {
+  .exciting__body {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .exciting__body {
+    display: block !important;
+  }
+  .exciting__cont {
+    margin-top: 30px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    h3 {
+      @include mixins.fontStill(veribles.$thirdBlack, inherit, 18px, 24px);
+      margin: 10px 0;
+    }
+  }
+}

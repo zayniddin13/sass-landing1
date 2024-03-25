@@ -1,0 +1,69 @@
+@use "../abstract/veribles";
+@use "../abstract/mixins";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  max-width: 1360px;
+  padding: 0 30px;
+  @media screen and (max-width: 500px) {
+    padding: 0 10px;
+  }
+}
+
+@each $nav in (veribles.$navbar) {
+  .nav__#{$nav} {
+    @include mixins.flexbox(15px, inherit, space-between);
+    @media screen and (max-width: 1040px) {
+      gap: 5px;
+    }
+  }
+  .footer__#{$nav} {
+    @include mixins.flexbox(15px, inherit, space-between);
+    @media screen and (max-width: 1040px) {
+      gap: 5px;
+    }
+  }
+}
+@each $title in (veribles.$titles) {
+  .#{$title}__title {
+    @include mixins.title;
+  }
+  .#{$title}__subtitle {
+    @include mixins.subTitle;
+  }
+}
+a {
+  @include mixins.title;
+  @include mixins.flexbox(5px, inherit, inherit);
+  @include mixins.transition;
+  font-size: 16px;
+  line-height: 42px;
+  margin-left: 30px;
+  text-decoration: none;
+  .icon-to-bottom {
+    font-size: 7px;
+
+    transform: rotate(-90deg);
+    @include mixins.transition;
+  }
+  &:hover {
+    cursor: pointer;
+    .icon-to-bottom {
+      transform: translateX(8px) rotate(-90deg);
+    }
+  }
+}
+.btn__white {
+  @include mixins.buttonStyle(veribles.$primaryPurple, white);
+  @include mixins.transition();
+  &:hover {
+    @include mixins.buttonStyle(white, veribles.$primaryPurple);
+    &:active {
+      opacity: 0.4;
+    }
+  }
+}
